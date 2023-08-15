@@ -30,7 +30,7 @@ public class UserResource {
 		
 	   User user=service.findOne(id);
 	   if(user==null)
-		   throw new UserNotFoundException;
+		   throw new UserNotFoundException("id "+id);
 	   
 	   return user;
 	}
