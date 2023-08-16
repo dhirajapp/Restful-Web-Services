@@ -2,10 +2,15 @@ package com.dhirajapp.restfulwebservices.user;
 
 import java.time.LocalDate;
 
+import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.Size;
+
 public class User {
 	
 	private Integer id;
+	@Size(min = 5 , message="Name should have atleast 5 character")
 	private String name;
+	@Past(message="Bithdate should be in the past")
 	private LocalDate dob;
 	
 	public User(Integer id, String name, LocalDate dob) {
