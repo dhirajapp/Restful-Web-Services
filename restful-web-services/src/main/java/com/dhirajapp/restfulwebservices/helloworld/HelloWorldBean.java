@@ -1,4 +1,4 @@
-package com.dhirajapp.restfulwebservices.controller;
+package com.dhirajapp.restfulwebservices.helloworld;
 
 public class HelloWorldBean {
 
