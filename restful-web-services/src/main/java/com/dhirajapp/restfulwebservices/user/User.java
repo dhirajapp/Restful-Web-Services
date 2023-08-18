@@ -2,6 +2,8 @@ package com.dhirajapp.restfulwebservices.user;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
 
@@ -9,8 +11,10 @@ public class User {
 	
 	private Integer id;
 	@Size(min = 5 , message="Name should have atleast 5 character")
+	@JsonProperty("User Name")
 	private String name;
 	@Past(message="Bithdate should be in the past")
+	@JsonProperty("Date of Birth")
 	private LocalDate dob;
 	
 	public User(Integer id, String name, LocalDate dob) {
