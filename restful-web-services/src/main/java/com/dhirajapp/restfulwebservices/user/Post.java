@@ -17,24 +17,34 @@ public class Post {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JsonIgnore
 	private User user;
-	
+
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public String getDiscription() {
 		return discription;
 	}
+
 	public void setDiscription(String discription) {
 		this.discription = discription;
 	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	@Override
 	public String toString() {
-		return "Post [id=" + id + ", discription=" + discription + "]";
+		return "Post [id=" + id + ", discription=" + discription + ", user=" + user + "]";
 	}
-	
-	
-	
+
 }

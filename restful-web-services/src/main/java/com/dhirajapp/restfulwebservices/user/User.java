@@ -11,26 +11,28 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
-@Entity(name="user_details")
+
+@Entity(name = "user_details")
 public class User {
-	
+
 	protected User() {
-		
+
 	}
+
 	@Id
 	@GeneratedValue
 	private Integer id;
-	@Size(min = 5 , message="Name should have atleast 5 character")
+	@Size(min = 5, message = "Name should have atleast 5 character")
 	@JsonProperty("User Name")
 	private String name;
-	@Past(message="Bithdate should be in the past")
+	@Past(message = "Bithdate should be in the past")
 	@JsonProperty("Date of Birth")
 	private LocalDate dob;
-	
+
 	@OneToMany(mappedBy = "user")
 	@JsonProperty
 	private List<Post> posts;
-	
+
 	public User(Integer id, String name, LocalDate dob) {
 		super();
 		this.id = id;
@@ -62,10 +64,17 @@ public class User {
 		this.dob = dob;
 	}
 
+	public List<Post> getPosts() {
+		return posts;
+	}
+
+	public void setPosts(List<Post> posts) {
+		this.posts = posts;
+	}
+
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", dob=" + dob + "]";
+		return "User [id=" + id + ", name=" + name + ", dob=" + dob + ", posts=" + posts + "]";
 	}
-	
-	
+
 }
